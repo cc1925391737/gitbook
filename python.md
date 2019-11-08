@@ -244,3 +244,158 @@ Python有五个标准的数据类型：
 | in not in                | 成员运算符                                             |
 | not and or               | 逻辑运算符                                             |
 
+## 条件语句
+
+Python条件语句是通过一条或多条语句的执行结果（True或者False）来决定执行的代码块。
+
+Python程序语言指定任何非0和非空（null）值为true，0 或者 null为false。
+
+Python 编程中 if 语句用于控制程序的执行，基本形式为：
+
+```
+if 判断条件：
+    执行语句……
+else：
+    执行语句……
+```
+
+if 语句的判断条件可以用>（大于）、<(小于)、==（等于）、>=（大于等于）、<=（小于等于）来表示其关系。
+
+当判断条件为多个值时，可以使用以下形式：
+
+```
+if 判断条件1:
+    执行语句1……
+elif 判断条件2:
+    执行语句2……
+elif 判断条件3:
+    执行语句3……
+else:
+    执行语句4……
+```
+
+由于 python 并不支持 switch 语句，所以多个条件判断，只能用 elif 来实现，如果判断需要多个条件需同时判断时，可以使用 or （或），表示两个条件有一个成立时判断条件成功；使用 and （与）时，表示只有两个条件同时成立的情况下，判断条件才成功。
+
+#!/usr/bin/python 
+
+-*- coding: UTF-8 -*-
+
+var = 100 
+if ( var  == 100 ) : print "变量 var 的值为100" 
+print "Good bye!"
+
+## 循环语句
+
+Python 提供了 for 循环和 while 循环（在 Python 中没有 do..while 循环）:
+
+| 循环类型                                                     | 描述                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------ |
+| [while 循环](https://www.runoob.com/python/python-while-loop.html) | 在给定的判断条件为 true 时执行循环体，否则退出循环体。 |
+| [for 循环](https://www.runoob.com/python/python-for-loop.html) | 重复执行语句                                           |
+| [嵌套循环](https://www.runoob.com/python/python-nested-loops.html) | 你可以在while循环体中嵌套for循环                       |
+
+------
+
+循环控制语句
+
+循环控制语句可以更改语句执行的顺序。Python支持以下循环控制语句：
+
+| 控制语句                                                     | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [break 语句](https://www.runoob.com/python/python-break-statement.html) | 在语句块执行过程中终止循环，并且跳出整个循环                 |
+| [continue 语句](https://www.runoob.com/python/python-continue-statement.html) | 在语句块执行过程中终止当前循环，跳出该次循环，执行下一次循环。 |
+| [pass 语句](https://www.runoob.com/python/python-pass-statement.html) | pass是空语句，是为了保持程序结构的完整性。                   |
+
+## while循环语句
+
+Python 编程中 while 语句用于循环执行程序，即在某条件下，循环执行某段程序，以处理需要重复处理的相同任务。其基本形式为：
+
+```
+while 判断条件(condition)：
+    执行语句(statements)……
+```
+
+执行语句可以是单个语句或语句块。判断条件可以是任何表达式，任何非零、或非空（null）的值均为true。
+
+当判断条件假 false 时，循环结束。
+
+#!/usr/bin/python
+count = 0
+while (count < 9):
+print 'The count is:', count
+count = count + 1
+print "Good bye!"
+
+**无线循环**
+
+#!/usr/bin/python
+
+-*- coding: UTF-8 -*-
+
+var = 1
+while var == 1 :  # 该条件永远为true，循环将无限执行下去
+num = raw_input("Enter a number  :")
+print "You entered: ", num
+print "Good bye!"
+
+**循环使用 else 语句**
+
+#!/usr/bin/python
+count = 0
+while count < 5:
+print count, " is  less than 5"
+count = count + 1
+else:
+print count, " is not less than 5"
+
+**简单语句组**
+
+类似 if 语句的语法，如果你的 while 循环体中只有一条语句，你可以将该语句与while写在同一行中， 如下所示：
+
+#!/usr/bin/python
+flag = 1
+while (flag): print 'Given flag is really true!'
+print "Good bye!"
+
+**for循环语句**
+
+Python for循环可以遍历任何序列的项目，如一个列表或者一个字符串。
+
+#!/usr/bin/python
+
+-*- coding: UTF-8 -*-
+
+for letter in 'Python':     # 第一个实例
+print '当前字母 :', letter
+fruits = ['banana', 'apple',  'mango']
+for fruit in fruits:        # 第二个实例
+print '当前水果 :', fruit
+print "Good bye!"
+
+**通过序列索引迭代**
+
+#!/usr/bin/python
+
+-*- coding: UTF-8 -*-
+
+fruits = ['banana', 'apple',  'mango']
+for index in range(len(fruits)):
+print '当前水果 :', fruits[index]
+print "Good bye!"
+
+**循环使用else语句**
+
+在 python 中，for … else 表示这样的意思，for 中的语句和普通的没有区别，else 中的语句会在循环正常执行完（即 for 不是通过 break 跳出而中断的）的情况下执行，while … else 也是一样。
+
+#!/usr/bin/python
+
+-*- coding: UTF-8 -*-
+
+for num in range(10,20):  # 迭代 10 到 20 之间的数字
+for i in range(2,num): # 根据因子迭代
+if num%i == 0:      # 确定第一个因子
+j=num/i          # 计算第二个因子
+print '%d 等于 %d * %d' % (num,i,j)
+break            # 跳出当前循环
+else:                  # 循环的 else 部分
+print num, '是一个质数'
