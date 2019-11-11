@@ -357,7 +357,7 @@ flag = 1
 while (flag): print 'Given flag is really true!'
 print "Good bye!"
 
-**for循环语句**
+## **for循环语句**
 
 Python for循环可以遍历任何序列的项目，如一个列表或者一个字符串。
 
@@ -399,3 +399,114 @@ print '%d 等于 %d * %d' % (num,i,j)
 break            # 跳出当前循环
 else:                  # 循环的 else 部分
 print num, '是一个质数'
+
+## 循环嵌套
+
+Python 语言允许在一个循环体里面嵌入另一个循环。
+
+**Python for 循环嵌套语法：**
+
+for iterating_var in sequence:    for iterating_var in sequence:       statements(s)    statements(s)
+
+**Python while 循环嵌套语法：**
+
+while expression:    while expression:       statement(s)    statement(s)
+
+你可以在循环体内嵌入其他的循环体，如在while循环中可以嵌入for循环， 反之，你可以在for循环中嵌入while循环。
+
+#!/usr/bin/python
+
+#-*- coding: UTF-8 -*-
+
+i = 2
+while(i < 100):
+j = 2
+while(j <= (i/j)):
+if not(i%j): break
+j = j + 1
+if (j > i/j) : print i, " 是素数"
+i = i + 1
+print "Good bye!"
+
+
+
+## break语句
+
+Python break语句，就像在C语言中，打破了最小封闭for或while循环。
+
+break语句用来终止循环语句，即循环条件没有False条件或者序列还没被完全递归完，也会停止执行循环语句。
+
+break语句用在while和for循环中。
+
+如果您使用嵌套循环，break语句将停止执行最深层的循环，并开始执行下一行代码。
+
+#!/usr/bin/python
+
+#-*- coding: UTF-8 -*-
+
+for letter in 'Python':     # 第一个实例
+if letter == 'h':
+break
+print '当前字母 :', letter
+var = 10                    # 第二个实例
+while var > 0:              
+print '当前变量值 :', var
+var = var -1
+if var == 5:   # 当变量 var 等于 5 时退出循环
+break
+print "Good bye!"
+
+## continue语句
+
+Python continue 语句跳出本次循环，而break跳出整个循环。
+
+continue 语句用来告诉Python跳过当前循环的剩余语句，然后继续进行下一轮循环。
+
+continue语句用在while和for循环中。
+
+#!/usr/bin/python
+
+#-*- coding: UTF-8 -*-
+
+for letter in 'Python':     # 第一个实例
+if letter == 'h':
+continue
+print '当前字母 :', letter
+var = 10                    # 第二个实例
+while var > 0:              
+var = var -1
+if var == 5:
+continue
+print '当前变量值 :', var
+print "Good bye!"
+
+## pass语句
+
+Python pass 是空语句，是为了保持程序结构的完整性。
+
+**pass** 不做任何事情，一般用做占位语句。
+
+Python 语言 pass 语句语法格式如下：
+
+#!/usr/bin/python
+
+#-*- coding: UTF-8 -*-  -*- 
+
+for letter in 'Python':
+if letter == 'h':
+pass
+print '这是 pass 块'
+print '当前字母 :', letter
+print "Good bye!"
+
+pass 一般用于占位置。
+
+在 Python 中有时候会看到一个 def 函数:
+
+```
+def sample(n_samples):
+    pass
+```
+
+该处的 pass 便是占据一个位置，因为如果定义一个空函数程序会报错，当你没有想好函数的内容是可以用 pass 填充，使程序可以正常运行。
+
